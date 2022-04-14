@@ -24,6 +24,9 @@ class Cursus(models.Model):
   class Meta:
     verbose_name_plural = "Cursus"
 
+  def __str__(self):
+    return '{} {}: {}'.format(self.name,self.year_from_bac,self.scholar_year)
+
 class Student(models.Model):
   first_name = models.CharField(
     max_length=50,
@@ -34,7 +37,8 @@ class Student(models.Model):
   birth_date = models.DateField(
     verbose_name='date of birth',
     blank=False,
-    null=False
+    null=False,
+    default="1980-01-01"
   )
   
   last_name = models.CharField(
@@ -79,5 +83,3 @@ class Student(models.Model):
     null=True
   )
   
-  def __str__(self):
-    return '{} {}: {}'.format(self.name,self.year_from_bac,self.scholar_year)
