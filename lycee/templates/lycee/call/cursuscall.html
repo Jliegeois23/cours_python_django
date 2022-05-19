@@ -1,11 +1,12 @@
 {% extends 'master.html' %}
 {% if liste %}
   {% block title %}
-    create a new student
+    {{cursus.name}} : Call of roll
   {% endblock %}
-
+  
   {% block content %}
     <form method="POST">
+      Select date and check if student is missing
       {% csrf_token %}
       {{form.as_p}}
       <div class="buttons">
@@ -21,4 +22,3 @@
   {% else %}
     <p>No Cursus to show</p>
   {% endif %}
-  
